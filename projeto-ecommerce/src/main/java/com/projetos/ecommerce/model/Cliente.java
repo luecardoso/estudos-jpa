@@ -7,24 +7,16 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.math.BigDecimal;
-import java.util.Objects;
-
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
 @Entity
-public class Produto {
+public class Cliente {
 
     @EqualsAndHashCode.Include
     @Id
     private Long id;
-
     private String nome;
-
-    private String descricao;
-
-    private BigDecimal preco;
 
 }
