@@ -37,7 +37,7 @@ public class PrimeiroCrudTest extends EntityManagerTest {
     public void inserirRegistro() {
         Cliente cliente = new Cliente();
 
-        cliente.setId(3L);
+        //cliente.setId(3L);
         cliente.setNome("Lucas");
 
         entityManager.getTransaction().begin();

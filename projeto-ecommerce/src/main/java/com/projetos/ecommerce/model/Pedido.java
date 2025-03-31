@@ -1,9 +1,6 @@
 package com.projetos.ecommerce.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,6 +19,7 @@ public class Pedido {
 
     @EqualsAndHashCode.Include
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "data_pedido")
@@ -35,4 +33,7 @@ public class Pedido {
 
     private BigDecimal total;
     private StatusPedido status;
+
+    @Embedded
+    private EnderecoEntregaPedido enderecoEntrega;
 }
