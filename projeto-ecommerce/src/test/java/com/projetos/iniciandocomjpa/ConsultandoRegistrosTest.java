@@ -8,7 +8,7 @@ public class ConsultandoRegistrosTest extends EntityManagerTest {
 
     @Test
     public void busarPorIdentificador() {
-        Produto produto = entityManager.find(Produto.class, 1);
+        Produto produto = entityManager.find(Produto.class, 1L);
 //        Produto produto = entityManager.getReference(Produto.class, 1);
 
         Assertions.assertNotNull(produto);
