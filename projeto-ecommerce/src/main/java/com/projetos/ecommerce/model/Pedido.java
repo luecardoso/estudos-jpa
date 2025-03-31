@@ -1,5 +1,6 @@
 package com.projetos.ecommerce.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -9,24 +10,29 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.math.BigDecimal;
-import java.util.Objects;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
 @Entity
-@Table(name = "produto")
-public class Produto {
+@Table(name = "pedido")
+public class Pedido {
 
     @EqualsAndHashCode.Include
     @Id
     private Long id;
 
-    private String nome;
+    @Column(name = "data_pedido")
+    private LocalDateTime dataPedido;
 
-    private String descricao;
+    @Column(name = "data_entrega")
+    private LocalDateTime dataEntrega;
 
-    private BigDecimal preco;
+    @Column(name = "nota_fiscal_id")
+    private Integer notaFiscalId;
 
+    private BigDecimal total;
+    private StatusPedido status;
 }

@@ -1,5 +1,6 @@
 package com.projetos.ecommerce.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -13,14 +14,14 @@ import lombok.ToString;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
 @Entity
-@Table(name = "cliente")
-public class Cliente {
-
+@Table(name = "categoria")
+public class Categoria {
     @EqualsAndHashCode.Include
     @Id
     private Long id;
     private String nome;
-    private SexoCliente sexo;
 
+    @Column(name = "categoria_pai_id")
+    private Integer categoriaPaiId;
 
 }

@@ -1,26 +1,31 @@
 package com.projetos.ecommerce.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
+
+import java.util.Date;
 
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@ToString
 @Entity
-@Table(name = "cliente")
-public class Cliente {
+@Table(name = "nota_fiscal")
+public class NotaFiscal {
 
     @EqualsAndHashCode.Include
     @Id
-    private Long id;
-    private String nome;
-    private SexoCliente sexo;
+    private Integer id;
 
+    @Column(name = "pedido_id")
+    private Integer pedidoId;
 
+    private String xml;
+
+    @Column(name = "data_emissao")
+    private Date dataEmissao;
 }
