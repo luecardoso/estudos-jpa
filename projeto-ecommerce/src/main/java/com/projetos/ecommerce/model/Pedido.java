@@ -8,6 +8,7 @@ import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -28,12 +29,23 @@ public class Pedido {
     @Column(name = "data_entrega")
     private LocalDateTime dataEntrega;
 
-    @Column(name = "nota_fiscal_id")
-    private Integer notaFiscalId;
+    @OneToOne(mappedBy = "pedido")
+    private NotaFiscal notaFiscalId;
 
     private BigDecimal total;
     private StatusPedido status;
 
     @Embedded
     private EnderecoEntregaPedido enderecoEntrega;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
+
+    @OneToMany(mappedBy = "pedido")
+    private List<ItemPedido> itens;
+
+    @OneToOne(mappedBy = "pedido")
+    private PagamentoCartao pagamento;
+
 }
