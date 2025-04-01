@@ -4,7 +4,7 @@ insert into Produto (id, nome, preco, descricao) values (3, 'Câmera GoPro Hero 
 insert into Cliente (id, nome) values (1, 'Felipe');
 insert into Cliente (id, nome) values (2, 'Dani');
 
---insert into pedido (id, cliente_id, data_pedido, total, status) values (1, 1, CURRENT_TIMESTAMP, 100.0, 0);
+insert into pedido (id, cliente_id, data_pedido, total, status) values (1, 1, CURRENT_TIMESTAMP, 100.0, 0);
 
 insert into item_pedido (id, pedido_id, produto_id, preco_produto, quantidade) values (1, 1, 1, 5.0, 2);
 
