@@ -13,11 +13,16 @@ import java.util.Map;
 @Getter
 @Setter
 @ToString
-@SecondaryTable(name = "cliente_detalhe", pkJoinColumns = @PrimaryKeyJoinColumn(name = "cliente_id"))
+@SecondaryTable(name = "cliente_detalhe",
+        pkJoinColumns = @PrimaryKeyJoinColumn(name = "cliente_id"),
+        foreignKey = @ForeignKey(name = "fk_cliente_detalhe_cliente"))
 @Entity
-@Table(name = "cliente")
+@Table(name = "cliente",
+        uniqueConstraints = { @UniqueConstraint(name = "unq_cpf", columnNames = { "cpf" }) },
+        indexes = { @Index(name = "idx_nome", columnList = "nome") })
 public class Cliente extends EntidadeBaseLong {
 
+    @Column(length = 100, nullable = false)
     private String nome;
 
     @Enumerated(EnumType.STRING)
@@ -49,4 +54,7 @@ public class Cliente extends EntidadeBaseLong {
 
     @Column(name = "data_nascimento", table = "cliente_detalhe")
     private LocalDate dataNascimento;
+
+    @Column(length = 14, nullable = false)
+    private String cpf;
 }
