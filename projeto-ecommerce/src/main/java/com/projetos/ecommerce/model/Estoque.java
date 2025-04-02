@@ -8,15 +8,10 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
 @Entity
 @Table(name = "estoque")
-public class Estoque {
-    @EqualsAndHashCode.Include
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Estoque extends EntidadeBaseLong{
 
     @OneToOne(optional = false)
     @JoinColumn(name = "produto_id")

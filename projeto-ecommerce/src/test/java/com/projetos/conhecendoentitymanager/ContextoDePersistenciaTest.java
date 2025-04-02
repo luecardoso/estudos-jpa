@@ -12,8 +12,8 @@ public class ContextoDePersistenciaTest extends EntityManagerTest {
     public void usarContextoPersistencia() {
         entityManager.getTransaction().begin();
 
-//        Produto produto = entityManager.find(Produto.class, 1);
-//        produto.setPreco(new BigDecimal(100.0));
+        Produto produto = entityManager.find(Produto.class, 3);
+        produto.setPreco(new BigDecimal(100.0));
 
         Produto produto2 = new Produto();
         produto2.setNome("Caneca para café");

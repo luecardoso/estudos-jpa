@@ -45,7 +45,7 @@ public class OperacoesComTransacaoTest extends EntityManagerTest {
     public void atualizarObjeto() {
         Produto produto = new Produto();
 
-        produto.setId(1L);
+        produto.setId(3L);
         produto.setNome("Kindle Paperwhite");
         produto.setDescricao("Conheça o novo Kindle.");
         produto.setPreco(new BigDecimal(599));
@@ -63,7 +63,7 @@ public class OperacoesComTransacaoTest extends EntityManagerTest {
 
     @Test
     public void removerObjeto() {
-        Produto produto = entityManager.find(Produto.class, 3L);
+        Produto produto = entityManager.find(Produto.class, 4);
 
         entityManager.getTransaction().begin();
         entityManager.remove(produto);
@@ -71,13 +71,13 @@ public class OperacoesComTransacaoTest extends EntityManagerTest {
 
 //        entityManager.clear(); Não é necessário na asserção para operação de remoção.
 
-        Produto produtoVerificacao = entityManager.find(Produto.class, 3);
+        Produto produtoVerificacao = entityManager.find(Produto.class, 4);
         Assertions.assertNull(produtoVerificacao);
     }
 
     @Test
     public void atualizarObjetoGerenciado() {
-        Produto produto = entityManager.find(Produto.class, 1L);
+        Produto produto = entityManager.find(Produto.class, 3);
 
         entityManager.getTransaction().begin();
         produto.setNome("Kindle Paperwhite 2ª Geração");
@@ -114,7 +114,7 @@ public class OperacoesComTransacaoTest extends EntityManagerTest {
     public void mostrarDifencaPersistMerge() {
         Produto produtoPersist = new Produto();
 
-        //produtoPersist.setId(5L);
+//        produtoPersist.setId(10L);
         produtoPersist.setNome("Smartphone One Plus");
         produtoPersist.setDescricao("O processador mais rápido.");
         produtoPersist.setPreco(new BigDecimal(2000));
@@ -133,7 +133,7 @@ public class OperacoesComTransacaoTest extends EntityManagerTest {
 
         Produto produtoMerge = new Produto();
 
-        //produtoMerge.setId(6L);
+//        produtoMerge.setId(11L);
         produtoMerge.setNome("Notebook Dell");
         produtoMerge.setDescricao("O melhor da categoria.");
         produtoMerge.setPreco(new BigDecimal(2000));
@@ -151,7 +151,7 @@ public class OperacoesComTransacaoTest extends EntityManagerTest {
 
     @Test
     public void impedirOperacaoComBancoDeDados() {
-        Produto produto = entityManager.find(Produto.class, 1L);
+        Produto produto = entityManager.find(Produto.class, 3);
         entityManager.detach(produto);// desanexa o objeto do gerenciador do entity manager
 
         entityManager.getTransaction().begin();

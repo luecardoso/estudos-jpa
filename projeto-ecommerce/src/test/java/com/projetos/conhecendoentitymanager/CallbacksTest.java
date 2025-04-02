@@ -11,7 +11,7 @@ public class CallbacksTest extends EntityManagerTest {
 
     @Test
     public void acionarCallbacks() {
-        Cliente cliente = entityManager.find(Cliente.class, 1);
+        Cliente cliente = entityManager.find(Cliente.class, 3);
 
         Pedido pedido = new Pedido();
 

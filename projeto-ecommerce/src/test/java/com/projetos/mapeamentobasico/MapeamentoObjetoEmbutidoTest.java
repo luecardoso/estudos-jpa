@@ -15,7 +15,7 @@ public class MapeamentoObjetoEmbutidoTest extends EntityManagerTest {
 
     @Test
     public void analisarMapeamentoObjetoEmbutido() {
-        Cliente cliente = entityManager.find(Cliente.class, 1);
+        Cliente cliente = entityManager.find(Cliente.class, 2);
 
         EnderecoEntregaPedido endereco = new EnderecoEntregaPedido();
         endereco.setCep("00000-00");

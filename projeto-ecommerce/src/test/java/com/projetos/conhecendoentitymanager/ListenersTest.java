@@ -12,13 +12,13 @@ public class ListenersTest extends EntityManagerTest {
 
     @Test
     public void carregarEntidades() {
-        Produto produto = entityManager.find(Produto.class, 1);
-        Pedido pedido = entityManager.find(Pedido.class, 1);
+        Produto produto = entityManager.find(Produto.class, 2);
+        Pedido pedido = entityManager.find(Pedido.class, 2);
     }
 
     @Test
     public void acionarCallbacks() {
-        Cliente cliente = entityManager.find(Cliente.class, 1);
+        Cliente cliente = entityManager.find(Cliente.class, 2);
 
         Pedido pedido = new Pedido();
 

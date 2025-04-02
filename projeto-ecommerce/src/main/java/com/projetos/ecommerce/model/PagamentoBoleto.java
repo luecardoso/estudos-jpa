@@ -7,21 +7,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@DiscriminatorValue("boleto")
 @Entity
-@Table(name = "pagamento_boleto")
-public class PagamentoBoleto {
-
-    @EqualsAndHashCode.Include
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-    @Column(name = "pedido_id")
-    private Integer pedidoId;
-
-    @Enumerated(EnumType.STRING)
-    private StatusPagamento status;
+//@Table(name = "pagamento_boleto") // usado com @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public class PagamentoBoleto extends Pagamento{
 
     @Column(name = "codigo_barras")
     private String codigoBarras;

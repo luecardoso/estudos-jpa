@@ -12,7 +12,7 @@ public class EstadosECicloDeVidaTest extends EntityManagerTest {
 
         Categoria categoriaGerenciadaMerge = entityManager.merge(categoriaNovo);
 
-        Categoria categoriaGerenciada = entityManager.find(Categoria.class, 1);
+        Categoria categoriaGerenciada = entityManager.find(Categoria.class, 2);
 
         entityManager.remove(categoriaGerenciada);
         entityManager.persist(categoriaGerenciada);

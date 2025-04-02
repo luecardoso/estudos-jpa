@@ -9,7 +9,7 @@ public class RemovendoEntidadesReferenciadasTest extends EntityManagerTest {
 
     @Test
     public void removerEntidadeRelacionada() {
-        Pedido pedido = entityManager.find(Pedido.class, 1);
+        Pedido pedido = entityManager.find(Pedido.class, 2);
 
         Assertions.assertFalse(pedido.getItens().isEmpty());
 
