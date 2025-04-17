@@ -18,15 +18,15 @@ import java.util.Map;
         foreignKey = @ForeignKey(name = "fk_cliente_detalhe_cliente"))
 @Entity
 @Table(name = "cliente",
-        uniqueConstraints = { @UniqueConstraint(name = "unq_cpf", columnNames = { "cpf" }) },
-        indexes = { @Index(name = "idx_nome", columnList = "nome") })
+        uniqueConstraints = { @UniqueConstraint(name = "cli_cpf", columnNames = { "cpf" }) },
+        indexes = { @Index(name = "idx_cli_nome", columnList = "nome") })
 public class Cliente extends EntidadeBaseLong {
 
     @Column(length = 100, nullable = false)
     private String nome;
 
     @Enumerated(EnumType.STRING)
-    @Column(table = "cliente_detalhe")
+    @Column(table = "cliente_detalhe", length = 30, nullable = false)
     private SexoCliente sexo;
 
     @OneToMany(mappedBy = "cliente")
@@ -34,16 +34,6 @@ public class Cliente extends EntidadeBaseLong {
 
     @Transient
     private String primeiroNome;
-
-    @PostLoad
-    public void configurarPrimeiroNome(){
-        if (nome != null && !nome.trim().isEmpty()) {
-            int index = nome.indexOf(" ");
-            if (index > -1) {
-                primeiroNome = nome.substring(0, index);
-            }
-        }
-    }
 
     @ElementCollection
     @CollectionTable(name = "cliente_contato",
@@ -57,4 +47,14 @@ public class Cliente extends EntidadeBaseLong {
 
     @Column(length = 14, nullable = false)
     private String cpf;
+
+    @PostLoad
+    public void configurarPrimeiroNome(){
+        if (nome != null && !nome.trim().isEmpty()) {
+            int index = nome.indexOf(" ");
+            if (index > -1) {
+                primeiroNome = nome.substring(0, index);
+            }
+        }
+    }
 }

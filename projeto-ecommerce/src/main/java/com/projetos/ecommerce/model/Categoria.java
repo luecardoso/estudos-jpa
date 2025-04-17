@@ -13,7 +13,7 @@ import java.util.List;
 @ToString
 @Entity
 @Table(name = "categoria",
-        uniqueConstraints = { @UniqueConstraint(name = "unq_nome", columnNames = { "nome" }) })
+        uniqueConstraints = { @UniqueConstraint(name = "cat_nome", columnNames = { "nome" }) })
 public class Categoria extends EntidadeBaseLong{
 
     @Column(length = 100, nullable = false)

@@ -19,8 +19,8 @@ import java.util.Objects;
 @EntityListeners({GenericoListener.class})
 @Entity
 @Table(name = "produto",
-        uniqueConstraints = { @UniqueConstraint(name = "unq_nome", columnNames = { "nome" }) },
-        indexes = { @Index(name = "idx_nome", columnList = "nome") })
+        uniqueConstraints = { @UniqueConstraint(name = "prod_nome", columnNames = { "nome" }) },
+        indexes = { @Index(name = "idx_prod_nome", columnList = "nome") })
 public class Produto extends EntidadeBaseLong{
 
     @Column(length = 100, nullable = false)

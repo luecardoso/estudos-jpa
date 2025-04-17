@@ -6,6 +6,8 @@ import jakarta.persistence.TypedQuery;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 public class BasicoJPQLTest extends EntityManagerTest {
 
     @Test
@@ -14,14 +16,14 @@ public class BasicoJPQLTest extends EntityManagerTest {
         // JPQL - select p from Pedido p where p.id = 1
         // SQL - select p.* from pedido where id = 1
 
-        // entityManager.find(Pedido.class, 1)
+        entityManager.find(Pedido.class, 2);
         TypedQuery<Pedido> typedQuery = entityManager
-                .createQuery("select p from Pedido p where p.id = 1", Pedido.class);
+                .createQuery("select p from Pedido p where p.id = 2", Pedido.class);
 
-        Pedido pedido = typedQuery.getSingleResult();
+        Pedido pedido = typedQuery.getSingleResult();// typedQuery apenas retorna um resultado
         Assertions.assertNotNull(pedido);
 
 //        List<Pedido> lista = typedQuery.getResultList();
-//        Assert.assertFalse(lista.isEmpty());
+//        Assertions.assertFalse(lista.isEmpty());
     }
 }
